@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <title>Style_Transfer</title>
+  <style>
+    body {
+      font-family: 'NanumGothic';
+      background-color: #292929;
+    }
+  
+    .drag-over { background-color: #ff0; }
+    .thumb { width:200px; padding:5px; float:left; }
+    .thumb > img { width:100%; }
+    .thumb > .close { position:absolute; background-color:red; cursor:pointer; }
+  </style>
+
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#" style="color:black;">끝판왕 TEAM</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="/style">Style Transfer</a></li>
+        <li><a href="/first">First Order Motion</a></li>
+        <li><a href="/faceswap">Face Swap</a></li>
+        <li><a href="/about">About Us</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- Header -->
+  <div class="jumbotron text-center">
+    <background-img src="{{ url_for ('static', filename='img/Header2.png') }}" alt="Image">
+  <h1>Style Transfer</h1> 
+  <p>이미지에 다양한 스타일을 적용해보세요.</p> 
+  <form>
+    <div class="input-group">
+      <input type="email" class="form-control" size="50" placeholder="이메일을 적어주세요" required>
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-danger">문의하기</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div id="style_container" class="container-fluid text-center bg-grey">
+  <h2>Style Transfer</h2><br>
+  <h4>이미지를 다양한 스타일로 변경해보세요</h4>
+  <div class="row text-center slideanim slide">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+          <div id="drop" style="border:1px solid black; width:400; height:600; background-color:gray">
+            스타일을 입힐 이미지를 넣으세요<br> (drag & drop)<br>
+            <input type="button" id="btnSubmit" value="업로드" />
+            <div id="thumbnails">
+            </div>
+          </div>
+          <script>
+            var uploadFiles = [];
+            var $drop = $("#drop");
+            
+            // 이미지를 드래그 하기
+            $drop.on("dragenter", function(e) { 
+              $(this).addClass('drag-over');
+            }).on("dragleave", function(e) { 
+              //드래그 된 이미지를 제거
+              $(this).removeClass('drag-over');
+            }).on("dragover", function(e) {
+              e.stopPropagation();
+              e.preventDefault();
+            }).on('drop', function(e) { 
+                //드래그된 이미지 넣기
+                e.preventDefault();
+                $(this).removeClass('drag-over');
+              
+                //이미지 파일  
+                var files = e.originalEvent.dataTransfer.files; 
+                for(var i = 0; i < files.length; i++) {
+                  var file = files[i];
+                  //업로드 추가
+                  var size = uploadFiles.push(file); 
+                  //미리보기
+                  preview(file, size - 1); 
+                }
+            });
+            
+            function preview(file, idx) {
+              var reader = new FileReader();
+              reader.onload = (function(f, idx) {
+                return function(e) {
+                  var div = '<div class="thumb"> \
+                  <div class="close" data-idx="' + idx + '">X</div> \
+                  <img src="' + e.target.result + '" title="' + escape(f.name) + '"/> \
+                  </div>';
+                  $("#thumbnails").append(div);
+                };
+              })(file, idx);
+              reader.readAsDataURL(file);
+            }
+            
+            $("#btnSubmit").on("click", function() {
+              var formData = new FormData();
+              $.each(uploadFiles, function(i, file) {
+                  if(file.upload != 'disable') //삭제하지 않은 이미지만 업로드 항목으로 추가
+                  formData.append('upload-file', file, file.name);
+                });
+              $.ajax({
+                url: '/api/etc/file/upload',
+                data : formData,
+                type : 'post',
+                contentType : false,
+                processData: false,
+                success : function(ret) {
+                  alert("완료");
+                }
+              });
+            });
+            
+            $("#thumbnails").on("click", ".close", function(e) {
+              var $target = $(e.target);
+              var idx = $target.attr('data-idx');
+              uploadFiles[idx].upload = 'disable'; //플래그 생성(삭제된 항목은 업로드하지 않기) 
+              //미리보기 제거
+              $target.parent().remove(); 
+            });
+          </script>
+        <p><strong>Input Image</strong></p>
+        <p>스타일을 입힐 이미지를 넣으세요</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src={{ url_for ('static', filename='img/style_main.jpeg')}} alt="Style" width="400" height="300">
+        <p><strong>Choose Style</strong></p>
+        <p>스타일 선택하기</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src={{ url_for ('static', filename='img/style_main.jpeg')}} alt="Output" width="400" height="300">
+        <p><strong>Output Image</strong></p>
+        <p>결과 이미지</p>
+      </div>
+    </div>
+  </div><br>
+  
+  <h2>footer 적기</h2>
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+      <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item">
+        <h4>할말말말마람ㄹ<br><span>할말말말마람ㄹ</span></h4>
+      </div>
+      <div class="item active">
+        <h4>할말말말마람ㄹ<br><span>할말말말마람ㄹ</span></h4>
+      </div>
+      <div class="item">
+        <h4>할말말말마람ㄹ<br><span>할말말말마람ㄹ</span></h4>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+  
+</body>
+</html>
