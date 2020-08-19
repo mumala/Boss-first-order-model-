@@ -21,6 +21,42 @@
     .thumb > .close { position:absolute; background-color:red; cursor:pointer; }
   </style>
 
+  <script>
+      function uploadFile() {
+      var blobFile = $('#filechooser').files[0];
+      var formData = new FormData();
+      formData.append("fileToUpload", blobFile);
+
+      $.ajax({
+      url: "upload.php",
+      type: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
+      
+      success: function(response) {
+        // .. do something
+      },
+      
+      error: function(jqXHR, textStatus, errorMessage) {console.log(errorMessage); // Optional}
+      }
+      );
+      
+      }
+  
+    function styleSend(param) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(data) {
+      if (this.readyState == 4 && this.status == 200) {
+       //document.getElementById("demo").innerHTML = this.responseText;
+       alert(data.responseText);
+      }
+    };
+    xhttp.open("GET", "style2/" + param, true);
+    xhttp.send();
+  };
+  </script>
+
 </head>
 <body>
   <nav class="navbar navbar-default">
@@ -54,95 +90,17 @@
       <div class="thumbnail">
           <div id="drop" style="border:1px solid black; width:400; height:600; background-color:gray">
             스타일을 입힐 이미지를 넣으세요<br> (drag & drop)<br>
-            <input type="button" id="btnSubmit" value="업로드" />
-            <div id="thumbnails">
-            </div>
           </div>
-          <script>
-            var uploadFiles = [];
-            var $drop = $("#drop");
-
-            // 이미지를 드래그 하기
-            $drop.on("dragenter", function(e) {
-              $(this).addClass('drag-over');
-            }).on("dragleave", function(e) {
-              //드래그 된 이미지를 제거
-              $(this).removeClass('drag-over');
-            }).on("dragover", function(e) {
-              e.stopPropagation();
-              e.preventDefault();
-            }).on('drop', function(e) {
-                //드래그된 이미지 넣기
-                e.preventDefault();
-                $(this).removeClass('drag-over');
-
-                //이미지 파일
-                var files = e.originalEvent.dataTransfer.files;
-                for(var i = 0; i < files.length; i++) {
-                  var file = files[i];
-                  //업로드 추가
-                  var size = uploadFiles.push(file);
-                  //미리보기
-                  preview(file, size - 1);
-                }
-            });
-
-            function preview(file, idx) {
-              var reader = new FileReader();
-              reader.onload = (function(f, idx) {
-                return function(e) {
-                  var div = '<div class="thumb"> \
-                  <div class="close" data-idx="' + idx + '">X</div> \
-                  <img src="' + e.target.result + '" title="' + escape(f.name) + '"/> \
-                  </div>';
-                  $("#thumbnails").append(div);
-                };
-              })(file, idx);
-              reader.readAsDataURL(file);
-            }
-
-            $("#btnSubmit").on("click", function() {
-              var formData = new FormData();
-              $.each(uploadFiles, function(i, file) {
-                  if(file.upload != 'disable') //삭제하지 않은 이미지만 업로드 항목으로 추가
-                  formData.append('upload-file', file, file.name);
-                });
-              $.ajax({
-                url: '/api/etc/file/upload',
-                data : formData,
-                type : 'post',
-                contentType : false,
-                processData: false,
-                success : function(ret) {
-                  alert("완료");
-                }
-              });
-            });
-
-            $("#thumbnails").on("click", ".close", function(e) {
-              var $target = $(e.target);
-              var idx = $target.attr('data-idx');
-              uploadFiles[idx].upload = 'disable'; //플래그 생성(삭제된 항목은 업로드하지 않기)
-              //미리보기 제거
-              $target.parent().remove();
-            });
-
-
-            function styleSend(param) {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function(data) {
-              if (this.readyState == 4 && this.status == 200) {
-               //document.getElementById("demo").innerHTML = this.responseText;
-               alert(data.responseText);
-              }
-            };
-            xhttp.open("GET", "style2/" + param, true);
-            xhttp.send();
-          };
-
-          </script>
-        <p><strong>Input Image</strong></p>
-        <p>스타일을 입힐 이미지를 넣으세요</p>
+          <!-- <button id="btnUpload" onclick="UploadImage()">업로드</button> -->
+          <!-- <div><input type="file" id="myFile"></div>-->
+          
+          <!-- <form action="/action_page.php">
+            <label for="myfile">Select a file:</label>
+            <input type="file" accept=".jpeg, .PNG" id="myfile" name="myfile"><br><br>
+            <input type="submit">
+          </form> -->
+          
+          <input type="file" id="filechooser">
       </div>
     </div>
 
