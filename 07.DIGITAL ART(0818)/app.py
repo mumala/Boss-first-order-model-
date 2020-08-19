@@ -16,7 +16,7 @@ def style():
 @app.route('/style2/<param>', methods=['GET'])
 def style2(param) ->str:
     # param = request.form['id']
-    print(param , " ajax")
+    print(param)
     return param , " ajax"
 ##################################################################################
 @app.route('/video')
