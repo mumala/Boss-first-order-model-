@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -9,21 +9,57 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <title>Style_Transfer</title>
+
     <style>
-      body {
+
+
+    .square{
+      width: 400px;
+      float:left;
+      /* background: white; */
+      transform: perspective(50px) rotateY(-1deg);
+      margin: 50px;
+
+    }
+
+    img {
+      max-width:100%;
+      max-height:100%;
+}
+
+    /* div:after {
+    background-image:url(이미지 경로);
+    top:0;
+    left:0;
+    position:absolute;
+    background-size:100%;
+    opacity:0.5!important;
+    filter:alpha(opacity=50);
+    z-index:-1;
+    content:"";
+    width:100%;
+    height:100%;
+} */
+
+    html {
+    background: url('static/img/museum.PNG') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+    body {
         font-family: 'NanumGothic';
-        background-image:url('static/img/museum.PNG');
       }
 
       .drag-over { background-color: #ff0; }
       .thumb { width:200px; padding:5px; float:left; }
       .thumb > img { width:100%; }
       .thumb > .close { position:absolute; background-color:red; cursor:pointer; }
-
-        </style>
-    <title>Face emotion recognition</title>
+    </style>
 </head>
-<body background="static/img/museum.">
+
+<body >
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -38,7 +74,13 @@
       </ul>
     </div>
   </nav>
-  <div class="live">
+
+
+  <div class="square" style="border-style:groove; border-width:4px; border-color:#592720; position: absolute; left: 1000px; top: 200px;">
+        <img id="bg" width=500px height=400px src="{{ url_for('style_video_feed') }}">
+    </div>
+
+
     <script type="text/javascript">
 
     function detailView(src) {
@@ -51,11 +93,8 @@
           $("#detail_imgt_pop").hide();
        });
     });
-
-
-  </div>
-
   </script>
-    <img id="bg", width="1200" height="900" src="{{ url_for('style_video_feed') }}">
+
+
 </body>
 </html>
