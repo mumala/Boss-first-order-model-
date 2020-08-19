@@ -126,11 +126,26 @@
               //미리보기 제거
               $target.parent().remove();
             });
+
+
+            function styleSend(param) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(data) {
+              if (this.readyState == 4 && this.status == 200) {
+               //document.getElementById("demo").innerHTML = this.responseText;
+               alert(data.responseText);
+              }
+            };
+            xhttp.open("GET", "style2/" + param, true);
+            xhttp.send();
+          };
+
           </script>
         <p><strong>Input Image</strong></p>
         <p>스타일을 입힐 이미지를 넣으세요</p>
       </div>
     </div>
+
     <div class="col-sm-4">
 
       <div class="thumbnail">
@@ -146,32 +161,41 @@
             <li data-target="#myCarousel" data-slide-to="6" class=""></li>
           </ol>
 
-
-          <form class="" action="index.html" method="post">
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
-            <div class="item active">
-              <input type="image" name="button" id="Monet" value="Monet" src="static/img/style_Monet.PNG">
+
+            <div class="item active" id="style_">
+              <p ><img src="static/img/style_Monet.PNG" alt="Monet style"> </p>
+              <p><strong>Choose Style</strong></p>
+              <button type="button" name="button" onclick="styleSend('monet')" >  <p> <strong> 스타일 선택하기 </strong></p></button>
             </div>
-            <div class="item ">
-              <input type="image" name="button"  id="Cezanne" value="Cezanne" src="static/img/style_Cezanne.PNG">
+            <div class="item" id="style_">
+              <p ><img src="static/img/style_Cezanne.PNG" alt="Cenzanne style"> </p>
+              <p><strong>Choose Style</strong></p>
+              <button type="button" name="button" onclick="styleSend('Cezanne')" >  <p> <strong> 스타일 선택하기 </strong></p></button>
             </div>
-            <div class="item  ">
-              <input type="image" name="button" id="Gauguin" value="Gauguin" src="static/img/style_Gauguin.PNG">
+          <div class="item" id="style_">
+              <p ><img src="static/img/style_Gauguin.PNG" alt="Gauguin style"> </p>
+              <p><strong>Choose Style</strong></p>
+              <button type="button" name="button" onclick="styleSend('Gauguin')" >  <p> <strong> 스타일 선택하기 </strong></p></button>
             </div>
-            <div class="item ">
-              <input type="image" name="button" id="Kandinsky" value="Kandinsky" src="static/img/style_Kandinsky.PNG">
+          <div class="item" id="style_">
+              <p ><img src="static/img/style_Kandinsky.PNG" alt="Kandinsky style"> </p>
+              <p><strong>Choose Style</strong></p>
+              <button type="button" name="button" onclick="styleSend('Kandinsky')" >  <p> <strong> 스타일 선택하기 </strong></p></button>
             </div>
-            <div class="item ">
-              <input type="image" name="button" id="Picasso" value="Picasso" src="static/img/style_Picasso.PNG">
+          <div class="item" id="style_">
+              <p ><img src="static/img/style_Picasso.PNG" alt="Picasso style"> </p>
+              <p><strong>Choose Style</strong></p>
+              <button type="button" name="button" onclick="styleSend('Picasso')" >  <p> <strong> 스타일 선택하기 </strong></p></button>
             </div>
-            <div class="item ">
-              <input type="image" name="button" id="van Gogh" value="van Gogh" src="static/img/style_van Gogh.PNG">
+          <div class="item" id="style_">
+              <p ><img src="static/img/style_van Gogh.PNG" alt="van Gogh style"> </p>
+              <p><strong>Choose Style</strong></p>
+              <button type="button" name="button" onclick="styleSend('van Gogh')" >  <p> <strong> 스타일 선택하기 </strong></p></button>
             </div>
-            <p><strong>Choose Style</strong></p>
-            <button type="button" name="button" >  <p> <strong> 스타일 선택하기 </strong></p></button>
           </div>
-        </form>
+
           <!-- Left and right controls -->
           <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>

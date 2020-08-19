@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, request
 from camera import VideoCamera
 from style_camera import StyleVideoCamera
 
@@ -12,6 +12,12 @@ def home():
 @app.route('/style')
 def style():
     return render_template("/style.html")
+
+@app.route('/style2/<param>', methods=['GET'])
+def style2(param) ->str:
+    # param = request.form['id']
+    print(param , " ajax")
+    return param , " ajax"
 ##################################################################################
 @app.route('/video')
 def video():

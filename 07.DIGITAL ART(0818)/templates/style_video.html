@@ -2,9 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <title>Style_Transfer</title>
+    <style>
+      body {
+        font-family: 'NanumGothic';
+        background-image:url('static/img/museum.PNG');
+      }
+
+      .drag-over { background-color: #ff0; }
+      .thumb { width:200px; padding:5px; float:left; }
+      .thumb > img { width:100%; }
+      .thumb > .close { position:absolute; background-color:red; cursor:pointer; }
+
+        </style>
     <title>Face emotion recognition</title>
 </head>
-<body>
-    <img id="bg", width="1200" height="900" src="{{ url_for('style_video_feed') }}"
+<body background="static/img/museum.">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#" style="color:black;">끝판왕 TEAM</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="/style">Style Transfer</a></li>
+        <li><a href="/first">First Order Motion</a></li>
+        <li><a href="/faceswap">Face Swap</a></li>
+        <li><a href="/about">About Us</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="live">
+    <script type="text/javascript">
+
+    function detailView(src) {
+       $("#camera_view").attr("src", src);
+       $("#product_popup").show();
+    }
+
+    $(function(){
+       $("#pop_close").click(function(){
+          $("#detail_imgt_pop").hide();
+       });
+    });
+
+
+  </div>
+
+  </script>
+    <img id="bg", width="1200" height="900" src="{{ url_for('style_video_feed') }}">
 </body>
 </html>
