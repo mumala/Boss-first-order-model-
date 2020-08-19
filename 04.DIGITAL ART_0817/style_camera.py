@@ -11,7 +11,7 @@ class StyleVideoCamera(object):
         self.video.release()
 
     def get_frame(self):
-        style_name = 'picasso'
+        style_name = 'armchair'
         img_shape = (188, 336)
 
         generator = load_model('weights/' + style_name + '.h5', 
