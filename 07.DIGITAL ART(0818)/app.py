@@ -1,7 +1,10 @@
 
-from flask import Flask, render_template, Response, request
+from flask import Flask, render_template, Response, request, jsonify
 from camera import VideoCamera
 from style_camera import StyleVideoCamera
+from werkzeug.utils import secure_filename
+import os
+
 
 app = Flask(__name__)
 
@@ -13,6 +16,16 @@ def home():
 def style():
     return render_template("/style.html")
 
+@app.route('/style1', methods=['GET','POST'])
+def upload_file():
+    if request.method == 'POST':
+        file = request.files['upload-file']
+        if file:
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(os.getcwd()+"/static", "current_image.jpg"))
+            tasks = []
+            return jsonify({'tasks': tasks})
+            
 @app.route('/style2/<param>', methods=['GET'])
 def style2(param) ->str:
     # param = request.form['id']
