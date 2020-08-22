@@ -19,27 +19,15 @@
       /* background: white; */
       transform: perspective(50px) rotateY(-1deg);
       margin: 50px;
-
     }
 
     img {
       max-width:100%;
       max-height:100%;
-}
+    }
 
-    /* div:after {
-    background-image:url(이미지 경로);
-    top:0;
-    left:0;
-    position:absolute;
-    background-size:100%;
-    opacity:0.5!important;
-    filter:alpha(opacity=50);
-    z-index:-1;
-    content:"";
-    width:100%;
-    height:100%;
-} */
+
+
 
     html {
     background: url('static/img/museum.PNG') no-repeat center center fixed;
@@ -77,7 +65,8 @@
 
 
   <div class="square" style="border-style:groove; border-width:4px; border-color:#592720; position: absolute; left: 1000px; top: 200px;">
-        <img id="bg" width=500px height=400px src="{{ url_for('style_video_feed') }}">
+        <img id="bg" width=500px height=400px src="{{ url_for('style_video_feed') }}"/>
+        <div class="overlay"></div>
     </div>
 
 
