@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <style>
+    html {
+    background-image:url('../static/img/first_motion_bg3.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    }
+    /* .video_art_div{
+
+      heigt:300px;
+      width: 250px;
+
+      transform: perspective(50px) ;
+    } */
+    table{
+      float:left;
+      border-radius: 20%;
+      margin-top: 0px;
+      margin-left: 500px;
+    }
+    .video_div{
+      float:left;
+      padding: 5px 5px 5px 5px;
+      -moz-border-radius: 5px !important;
+      border-collapse: collapse !important;
+    }
+    .trump{
+      background-color: white;
+      border:outset;
+      float:left;
+      /* transform: perspective(50px) ; */
+      border-radius: 30px;
+      overflow: hidden;
+    }
+    .video_art{
+      background-color: white;
+      border:outset;
+      float:left;
+      height: 150px;
+      width: 150px;
+      /* transform: perspective(50px) ; */
+      border-radius: 30px;
+      overflow: hidden;
+    }
+
+    img {
+      max-width:100%;
+      max-height:100%;
+    }
+    body {
+        font-family: 'NanumGothic';
+    }
+    
+    nav {
+      font-size : 15px;
+    }
+
+    nav:hover {
+      font-weight : bold;
+    }
+
+      .drag-over { background-color: #ff0; }
+      .thumb { width:200px; padding:5px; float:left; }
+      .thumb > img { width:100%; }
+      .thumb > .close { position:absolute; background-color:red; cursor:pointer; }
+  </style>
+
+  <title>First-order-motion</title>
+
+</head>
+
+<body >
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/" style="color:black;">끝판왕 TEAM</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <!-- <li class="active"><a href="/">Home</a></li> -->
+        <li><a href="/style">Style Transfer</a></li>
+        <li><a href="/first">First Order Motion</a></li>
+        <li><a href="/faceswap">Face Swap</a></li>
+        <li><a href="/about">About Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+    <!-- Header -->
+
+  <div class="card card-image" >
+  <div class="jumbotron text-center" style="
+  background-image: url('../static/img/man-in-the-mirror.jpg');
+  background-size: cover;
+  ">
+    <h1 style="color:white;">First Order Motion</h1>
+    <p style="color:white;">따라해보시오</p>
+  </div>
+
+
+
+  <!-- 5번째 동영상  -->
+  <!-- <div class='video_div'><video class='video_art' src='../static/img/d_trump_vox/ (5).mp4' muted='muted'  autoplay='autoplay' loop='loop' width=200px height=100% ></div> -->
+  <!-- 트럼프 통영상 -->
+  <!-- <div class="video_div"><video class="trump" src="../static/img/d_trump_vox/trump.mp4" muted="muted"  autoplay="autoplay" loop="loop" width=200px height=100% ></div> -->
+  <!-- 6번째 동영상 -->
+  <!-- <div class='video_div'><video class='video_art' src='../static/img/d_trump_vox/ (6).mp4' muted='muted'  autoplay='autoplay' loop='loop' width=200px height=100% ></div> -->
+  <!-- <p></p>
+  <script>
+
+    for(a = 7; a< 13; a++){
+        document.write("<div class='video_div'><video class='video_art' src='../static/img/d_trump_vox/ ("+a+ ").mp4' muted='muted'  autoplay='autoplay' loop='loop' width=200px height=100% ></div>");
+      }
+
+  </script> -->
+
+
+
+    <table style="border=1px  solid #444444;
+">
+      <tr>
+        <script>
+          for(a = 1; a< 7; a++){ document.write("<td><div class='video_div'><video class='video_art' src='../static/img/d_trump_vox/src ("+a+ ").mp4' muted='muted'  autoplay='autoplay' loop='loop' width=200px height=100% ></div></td>");}
+        </script>
+      </tr>
+
+      <tr>
+        <td><div class="video_div"><video class="video_art" src="../static/img/d_trump_vox/src (7).mp4" muted="muted"  autoplay="autoplay" loop="loop" width=200px height=100% ></div></td>
+        <td><div class="video_div"><video class="video_art" src="../static/img/d_trump_vox/src (8).mp4" muted="muted"  autoplay="autoplay" loop="loop" width=200px height=100% ></div></td>
+        <td colspan="2" rowspan="2"><div class="video_div"><video class="turmp" src="../static/img/d_trump_vox/trump.mp4" muted="muted"  autoplay="autoplay" loop="loop" width="300px" height=100% ></div></td>
+        <td><div class="video_div"><video class="video_art" src="../static/img/d_trump_vox/src (9).mp4" muted="muted"  autoplay="autoplay" loop="loop" width=200px height=100% ></div></td>
+        <td><div class="video_div"><video class="video_art" src="../static/img/d_trump_vox/src (10).mp4" muted="muted"  autoplay="autoplay" loop="loop" width=200px height=100% ></div></td>
+      </tr>
+
+      <tr>
+        <td><div class="video_div"><video class="video_art" src="../static/img/d_trump_vox/src (11).mp4" muted="muted"  autoplay="autoplay" loop="loop" width=200px height=100% ></div></td>
+        <td><div class="video_div"><video class="video_art" src="../static/img/d_trump_vox/src (12).mp4" muted="muted"  autoplay="autoplay" loop="loop" width=200px height=100% ></div></td>
+        <td><div class="video_div"><video class="video_art" src="../static/img/d_trump_vox/src (13).mp4" muted="muted"  autoplay="autoplay" loop="loop" width=200px height=100% ></div></td>
+        <td><div class="video_div"><video class="video_art" src="../static/img/d_trump_vox/src (14).mp4" muted="muted"  autoplay="autoplay" loop="loop" width=200px height=100% ></div></td>
+      </tr>
+
+      <tr>
+        <script>
+          for(a = 15; a< 21; a++){ document.write("<td><div class='video_div'><video class='video_art' src='../static/img/d_trump_vox/src ("+a+ ").mp4' muted='muted'  autoplay='autoplay' loop='loop' width=200px height=100% ></div></td>");}
+        </script>
+      </tr>
+    </table>
+
+    <script> document.getElementByclass('video_art').play(); </script>
+</div>
+
+
+</body>
+</html>

@@ -26,10 +26,10 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#" style="color:black;">끝판왕 TEAM</a>
+        <a class="navbar-brand" href="/" style="color:black;">끝판왕 TEAM</a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        <!-- <li class="active"><a href="/">Home</a></li> -->
         <li><a href="/style">Style Transfer</a></li>
         <li><a href="/first">First Order Motion</a></li>
         <li><a href="/faceswap">Face Swap</a></li>
@@ -40,11 +40,11 @@
 
 
   <!-- Header -->
-<div class="card card-image" >
+<!-- <div class="container"> -->
 <div class="jumbotron text-center" style="background-image: url(static/img/Header6.jpg)">
-<background-img src="{{ url_for ('static', filename='img/Header6.jpg') }}" alt="Image">
-<h1 style="color:rgb(180,180,180)">Face Swap</h1>
-<p style="color:rgb(180,180,180)">얼굴을 다양하게 바꿔보세요.</p>
+<background-img src="{{ url_for ('static', filename='img/Header6.jpg') }}" alt="Image" size="cover">
+<h1 style="color:white">Face Swap</h1>
+<p style="color:white">얼굴을 다양하게 바꿔보세요.</p>
 </div>
 
 <div id="style_container" class="container-fluid text-center bg-grey">
@@ -71,6 +71,6 @@
       </div>
     </div>
   </div>
-</div>
+<!-- </div> -->
 
 </html>
