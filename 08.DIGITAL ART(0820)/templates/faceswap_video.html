@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>DigitalArt_King_of_Boss</title>
+  <style>
+    body {
+      font-family: 'NanumGothic';
+      background-color: #292929;
+    }
+    .filebox label {
+  display: inline-block;
+  padding: .5em .75em;
+  color: #fff;
+  font-size: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #336600;
+  cursor: pointer;
+  border: 1px solid #336600;
+  border-radius: .25em;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.filebox label:hover {
+  background-color: #009933;
+}
+
+.filebox label:active {
+  background-color: #666633;
+}
+
+.filebox input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+  </style>
+
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#" style="color:black;">끝판왕 TEAM</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="/style">Style Transfer</a></li>
+        <li><a href="/first">First Order Motion</a></li>
+        <li><a href="/faceswap">Face Swap</a></li>
+        <li><a href="/about">About Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<!-- Header -->
+<div class="card card-image" >
+<div class="jumbotron text-center" style="background-image: url(static/img/Header6.jpg)">
+<background-img src="{{ url_for ('static', filename='img/Header6.jpg') }}" alt="Image">
+<h1 style="color:rgb(180,180,180)">Face Swap</h1>
+<p style="color:rgb(180,180,180)">얼굴을 다양하게 바꿔보세요.</p>
+</div>
+
+<div id="style_container" class="container-fluid text-center bg-grey">
+
+
+  <div class="col-sm-4">
+    <div class=swap_video>
+      <h2 style="color:rgb(180,180,180)">Source Video / Image</h2>
+      <video src="static/video/source.mp4" controls width="490px" height="290px"></video>
+      <br /><br />
+      <h4 style="color:rgb(180,180,180)">바꾸고싶은 얼굴의 비디오 또는 사진을 넣어주세요.</h4>
+      <div class="filebox">
+        <label for="ex_file">찾아보기</label>
+        <input type="file" id="ex_file" />
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class=swap_video>
+      <h2 style="color:rgb(180,180,180)">Target Video</h2>
+      <video src="static/video/target.mp4" controls width="490px" height="290px"></video>
+      <br /><br />
+      <h4 style="color:rgb(180,180,180)">바꿀 얼굴이 있는 비디오를 넣어주세요.</h4>
+      <div class="filebox">
+        <label for="ex_file">찾아보기</label>
+        <input type="file" id="ex_file" />
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class=swap_video>
+      <h2 style="color:rgb(180,180,180)">Output Video</h2>
+      <video src="static/video/output.mp4" controls width="490px" height="290px"></video>
+        <br /><br />
+        <h4 style="color:rgb(180,180,180)">바뀐 얼굴을 확인하세요.</h4>
+
+        <!-- <div class="filebox">
+          <label for="ex_file">다운로드</label>
+          <input type="file" id="ex_file" />
+        </div> -->
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -21,10 +21,10 @@ def upload_file():
         if file:
             filename = secure_filename(file.filename)
             file.save(os.path.join(os.getcwd()+"/my_photographs1/", "1.jpg"))
-            tasks = []            
+            tasks = []
 
             return jsonify({'tasks': tasks})
-            
+
 @app.route('/style2/<param>', methods=['GET'])
 def style2(param) ->str:
     # param = request.form['id']
@@ -57,18 +57,25 @@ def style_video_feed():
 def first():
     return render_template("/first.html")
 
+####################################################################################
 @app.route('/faceswap')
 def faceswap():
     return render_template("/faceswap.html")
+####################################################################################
 
+@app.route('/faceswap_video')
+def faceswap_video():
+    return render_template("/faceswap_video.html")
+
+#######################################################################################
 @app.route('/about')
 def about():
     return render_template("/about.html")
 
 from flask import send_from_directory
- 
 
- 
+
+
 
 
 if __name__ == '__main__':
