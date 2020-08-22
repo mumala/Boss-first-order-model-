@@ -12,13 +12,23 @@
   <style>
     body {
       font-family: 'NanumGothic';
-      background-color: #292929;
     }
   
     .drag-over { background-color: #ff0; }
     .thumb { width:200px; padding:5px; float:left; }
     .thumb > img { width:100%; }
     .thumb > .close { position:absolute; background-color:red; cursor:pointer; }
+    
+    .jumbotron {
+      background-image : url({{ url_for('static', filename='img/Header2.png')}});
+      background-size : cover;
+    }
+    
+    #style_container {
+      background-image : url({{ url_for('static', filename='img/museum.jpg')}});
+      background-size : cover;
+    }
+    
   </style>
 
 </head>
@@ -40,7 +50,6 @@
   
   <!-- Header -->
   <div class="jumbotron text-center">
-    <background-img src="{{ url_for ('static', filename='img/Header2.png') }}" alt="Image">
   <h1>Style Transfer</h1> 
   <p>이미지에 다양한 스타일을 적용해보세요.</p> 
   <form>
@@ -53,7 +62,7 @@
   </form>
 </div>
 
-<div id="style_container" class="container-fluid text-center bg-grey">
+<div id="style_container" class="container-fluid text-center bg-grey" style="background-image: url('static', filename='img/museum.jpg')";>
   <h2>Style Transfer</h2><br>
   <h4>이미지를 다양한 스타일로 변경해보세요</h4>
   <div class="row text-center slideanim slide">
