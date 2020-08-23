@@ -154,12 +154,11 @@
             xhttp.send();
             };
             
-            function changeImg() {  
+            function changeIMG() {  
               $.ajax({
                 url: '/file/1_stylized.jpg',
                 type: 'GET',
                 dataType: 'script',
-                timeout: 15000,
                 success : function(){
                   var image = document.getElementById("OutputImg");
                   image.src = "/file/1_stylized.jpg"
@@ -192,32 +191,32 @@
             <div class="item active" id="style_">
               <p ><img src="static/img/style_Monet.PNG" alt="Monet style" style="height:400px;"> </p>
               <p><strong>Monet style</strong></p>
-              <button type="button" name="button" onclick="styleSend('monet');changeImg()" > 스타일 선택하기 </button>
+              <button type="button" name="button" onclick="styleSend('monet');" > 스타일 선택하기 </button>
             </div>
             <div class="item" id="style_">
               <p ><img src="static/img/style_Cezanne.PNG" alt="Cenzanne style" style="height:400px;"> </p>
               <p><strong>Cenzanne style</strong></p>
-              <button type="button" name="button" onclick="styleSend('cezanne');changeImg()" >스타일 선택하기 </button>
+              <button type="button" name="button" onclick="styleSend('cezanne');" >스타일 선택하기 </button>
             </div>
           <div class="item" id="style_">
               <p ><img src="static/img/style_Gauguin.PNG" alt="Gauguin style" style="height:400px;"> </p>
               <p><strong>Gauguin style</strong></p>
-              <button type="button" name="button" name="button" onclick="styleSend('gauguin');changeImg()" > 스타일 선택하기 </button>
+              <button type="button" name="button" name="button" onclick="styleSend('gauguin');" > 스타일 선택하기 </button>
             </div>
           <div class="item" id="style_">
               <p ><img src="static/img/style_Kandinsky.PNG" alt="Kandinsky style" style="height:400px;"> </p>
               <p><strong>Kandinsky style</strong></p>
-              <button type="button" name="button" onclick="styleSend('kandinsky');changeImg()" >  스타일 선택하기 </button>
+              <button type="button" name="button" onclick="styleSend('kandinsky');" >  스타일 선택하기 </button>
             </div>
           <div class="item" id="style_">
               <p ><img src="static/img/style_Picasso.PNG" alt="Picasso style" style="height:400px;"> </p>
               <p><strong>Picasso style</strong></p>
-              <button type="button" name="button" onclick="styleSend('picasso');changeImg()" >  스타일 선택하기 </button>
+              <button type="button" name="button" onclick="styleSend('picasso');" >  스타일 선택하기 </button>
             </div>
           <div class="item" id="style_">
               <p ><img src="static/img/style_van Gogh.PNG" alt="van Gogh style" style="height:400px;"> </p>
               <p><strong>van Gogh style</strong></p>
-              <button type="button" name="button" onclick="styleSend('van-gogh');changeImg()" >  스타일 선택하기 </button>
+              <button type="button" name="button" onclick="styleSend('van-gogh');" >  스타일 선택하기 </button>
             </div>
           </div>
 
@@ -239,6 +238,7 @@
         <img src={{ url_for ('static', filename='img/style_main.jpeg')}} id="OutputImg" alt="Output" width="400" style="height:400px">
         <p><strong>Output Image</strong></p>
         <p>결과 이미지</p>
+        <button type="button" name="button" onclick="changeIMG()" > 결과보기 </button>
       </div>
     </div>
   </div>

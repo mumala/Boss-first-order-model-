@@ -29,8 +29,9 @@ def upload_file():
 def style2(param) ->str:
     # param = request.form['id']
     print(param)
-    if __name__ == '__main__':
-        os.system("python main.py --model_name=model_"+param+ " --phase=inference --image_size=1280 --ii_dir ./my_photographs1/ --save_dir=./save_processed_images_here/")
+    # if __name__ == '__main__':
+    #     os.system("python main.py --model_name=model_"+param+ " --phase=inference --image_size=1280 --ii_dir ./my_photographs1/ --save_dir=./save_processed_images_here/")
+    os.system("python main.py --model_name=model_"+param+ " --phase=inference --image_size=1280 --ii_dir ./my_photographs1/ --save_dir=./save_processed_images_here/")
     return param , " ajax"
 
 @app.route('/file/<path:filename>', methods=['GET', 'POST'])
