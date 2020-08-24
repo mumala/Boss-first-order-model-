@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <title>Style_Transfer</title>
+  <style>
+    body {
+      font-family: 'NanumGothic';
+      background-color: #292929;
+    }
+
+    .drag-over { background-color: #ff0; }
+    .thumb { width:200px; padding:5px; float:left; }
+    .thumb > img { width:100%; }
+    .thumb > .close { position:absolute; background-color:red; cursor:pointer; }
+  </style>
+
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/" style="color:black;">끝판왕 TEAM</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <!-- <li class="active"><a href="/">Home</a></li> -->
+        <li><a href="/style">Style Transfer</a></li>
+        <li><a href="/first">First Order Motion</a></li>
+        <li><a href="/faceswap">Face Swap</a></li>
+        <li><a href="/about">About Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- Header -->
+<!-- <div class="container"> -->
+<div class="jumbotron text-center" style="background-image: url(static/img/Header6.jpg)">
+<background-img src="{{ url_for ('static', filename='img/Header6.jpg') }}" alt="Image" size="cover">
+<h1 style="color:white">Face Swap</h1>
+<p style="color:white">얼굴을 다양하게 바꿔보세요.</p>
+</div>
+
+<div id="style_container" class="container-fluid text-center bg-grey">
+  <div class="row text-center slideanim slide">
+    <div class="col-sm-4">
+      <div class="swap1">
+        <h3 style="color:rgb(180,180,180)">First,</h3>
+        <h4 style="color:rgb(180,180,180)">바꾸고 싶은 얼굴을 넣고</h4><br />
+        <img src="static/img/source.png" alt="Source" width="380px" height=100%>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="swap1">
+        <h3 style="color:rgb(180,180,180)">Second,</h3>
+        <h4 style="color:rgb(180,180,180)">내 얼굴을 넣으면</h4><br />
+        <img src="static/img/target.png" alt="Target" width="380px" height=100%>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="swap1">
+        <h3 style="color:rgb(180,180,180)">Third,</h3>
+        <h4 style="color:rgb(180,180,180)">얼굴을 바꿔드립니다!</h4><br />
+        <img src="static/img/output.png" alt="Output" width="380px" height=100%>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->
+
+</html>
