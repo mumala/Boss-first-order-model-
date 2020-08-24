@@ -76,8 +76,5 @@ def about():
 from flask import send_from_directory
 
 
-
-
-
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
