@@ -3,6 +3,7 @@ from camera import VideoCamera
 from werkzeug.utils import secure_filename
 import os
 import uuid
+import shutil
 
 app = Flask(__name__)
 
@@ -17,6 +18,14 @@ def style():
 @app.route('/style1', methods=['GET','POST'])
 def upload_file():
     if request.method == 'POST':
+        path = './my_photographs1'
+        
+        if os.path.isdir(path):
+            shutil.rmtree(path)
+            os.mkdir(path,mode=777)
+        else:
+            os.mkdir(path,mode=777)
+        
         file = request.files['upload-file']
         if file:
             filename = secure_filename(file.filename)
