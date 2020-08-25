@@ -109,10 +109,13 @@
 										</div>
 
 										<!-- <input type="file" name="file" id="filechooser"> -->
+										
+										<p><strong style="color:black">Output Image</strong></p>
 										<input type="button" id="btnSubmit" value="업로드" style="margin-top:9px;">
 										<script>
 											var uploadFiles = [];
 											var upload_name = [];
+											var style_name = [];
 											var $drop = $("#drop");
 
 											// 이미지를 드래그 하기
@@ -168,7 +171,8 @@
 													processData: false,
 													success: function(ret) {
 														upload_name = ret.filename;
-														alert("완료:"+ret.filename);
+														upload_name = upload_name.substring(0,upload_name.length - 4);
+														alert("완료:"+ upload_name);
 													}
 												});
 											});
@@ -182,11 +186,11 @@
 											});
 
 											function styleSend(param) {
+												style_name = param;
 												var xhttp = new XMLHttpRequest();
 												xhttp.onreadystatechange = function(data) {
 													if (this.readyState == 4 && this.status == 200) {
-														//document.getElementById("demo").innerHTML = this.responseText;
-														alert("성공");
+														alert("성공:"+ style_name);
 													}
 												};
 												xhttp.open("GET", "style2/" + param, true);
@@ -212,7 +216,10 @@
 													}
 												});*/
 												//$("#OutputImg").attr("src",'/file/'+upload_name.substring(0,upload_name.length - 4)+'_stylized.jpg');
-												$("#OutputImg").attr("src",'/file/'+upload_name.substring(0,upload_name.length - 4)+'_stylized.jpg');
+												$("#OutputImg").attr("src",'/file/'+upload_name+'_stylized.jpg');
+												// $("#OutputStrong").innerHTML = upload_name+"_"+style_name;
+												// $("#OutputStrong").attr('innerHTML', upload_name+"_"+style_name);
+												$("#OutputStrong").text(upload_name+"_"+style_name);
 											};
 										</script>
 									</div>
@@ -284,7 +291,7 @@
 								<div class="col-sm-4">
 									<div class="thumbnail" style="height:500px;">
 										<img src={{ url_for ('static', filename='img/style_main.jpeg')}} id="OutputImg" alt="Output" width="400" style="height:400px">
-										<p><strong>Output Image</strong></p>
+										<p><strong style="color:black" id="OutputStrong">Output Image</strong></p>
 
 										<button type="button" name="button" onclick="changeIMG()" style="margin-top:9px;"> 결과보기 </button>
 									</div>
