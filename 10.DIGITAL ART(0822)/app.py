@@ -1,19 +1,25 @@
-from flask import Flask, render_template, Response, request, jsonify, send_from_directory, send_file 
+from flask import Flask, render_template, Response, request, jsonify, send_from_directory
 from camera import VideoCamera
 from werkzeug.utils import secure_filename
 import os
+<<<<<<< HEAD
 import uuid
 import shutil
+=======
+
+>>>>>>> 0689c56d763e14d19ce53459fb91da1d67b68ad8
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template("/home.html")
+    return render_template("/index.html")
+
+
 
 @app.route('/style')
 def style():
-    return render_template("/style.html")
+    return render_template("/generic.html")
 
 @app.route('/style1', methods=['GET','POST'])
 def upload_file():
@@ -29,9 +35,10 @@ def upload_file():
         file = request.files['upload-file']
         if file:
             filename = secure_filename(file.filename)
-            file.save(os.path.join(os.getcwd()+"/my_photographs1/", filename))
-            
-            return jsonify({'filename': filename})
+            file.save(os.path.join(os.getcwd()+"/my_photographs1/", "1.jpg"))
+            tasks = []
+
+            return jsonify({'tasks': tasks})
 
 @app.route('/style2/<param>', methods=['GET'])
 def style2(param) ->str:
@@ -40,13 +47,11 @@ def style2(param) ->str:
     # if __name__ == '__main__':
     #     os.system("python main.py --model_name=model_"+param+ " --phase=inference --image_size=1280 --ii_dir ./my_photographs1/ --save_dir=./save_processed_images_here/")
     os.system("python main.py --model_name=model_"+param+ " --phase=inference --image_size=1280 --ii_dir ./my_photographs1/ --save_dir=./save_processed_images_here/")
-    UUnumber= uuid.uuid1()
-    return jsonify({'UUnumber': UUnumber})
+    return param , " ajax"
 
 @app.route('/file/<path:filename>', methods=['GET', 'POST'])
 def download(filename):
-    # return send_from_directory(directory='save_processed_images_here', filename=filename, as_attachment=True)
-    return send_file(os.path.join('save_processed_images_here', filename[:-4]+'_stylized.jpg'), as_attachment=True)
+    return send_from_directory(directory='save_processed_images_here', filename=filename)
 
 ##################################################################################
 @app.route('/style_video')
@@ -64,14 +69,14 @@ def style_video_feed():
     return Response(style_gen(StyleVideoCamera()),mimetype='multipart/x-mixed-replace; boundary=frame')
 ##################################################################################
 
-@app.route('/first')
+@app.route('/firstordervideo')
 def first():
-    return render_template("/firstordervideo.html")
+    return render_template("/generic1.html")
 
 ####################################################################################
 @app.route('/faceswap')
 def faceswap():
-    return render_template("/faceswap.html")
+    return render_template("/generic0.html")
 ####################################################################################
 
 @app.route('/faceswap_video')
@@ -82,6 +87,9 @@ def faceswap_video():
 @app.route('/about')
 def about():
     return render_template("/about.html")
+
+from flask import send_from_directory
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

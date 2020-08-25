@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<!--
+	Road Trip by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Style Transfer</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../static/css/main.css" />
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	  <title>Style_Transfer</title>
+	  <style>
+	    body {
+	      font-family: 'NanumGothic';
+	      background-color: #292929;
+	    }
+
+	    .drag-over { background-color: #ff0; }
+	    .thumb { width:200px; padding:5px; float:left; }
+	    .thumb > img { width:100%; }
+	    .thumb > .close { position:absolute; background-color:red; cursor:pointer; }
+
+
+			.filebox label:hover {
+			  background-color: #009933;
+			}
+
+			.filebox label:active {
+			  background-color: #666633;
+			}
+
+			.filebox input[type="file"] {
+			  position: absolute;
+			  width: 1px;
+			  height: 1px;
+			  padding: 0;
+			  margin: -1px;
+			  overflow: hidden;
+			  clip: rect(0, 0, 0, 0);
+			  border: 0;
+			}
+
+			nav {
+			  font-size : 15px;
+			}
+
+			nav:hover {
+			  font-weight : bold;
+			}
+	  </style>
+
+
+		<style>
+	    body {
+	      font-family: 'NanumGothic';
+	      background-color: #292929;
+	    }
+
+	    .drag-over { background-color: #ff0; }
+	    .thumb { width:200px; padding:5px; float:left; }
+	    .thumb > img { width:100%; }
+	    .thumb > .close { position:absolute; background-color:red; cursor:pointer; }
+	    .jumbotron {
+	      background-image :url("static/img/Header5.png");
+	      background-size : cover;
+	    }
+
+	    nav {
+	      font-size : 15px;
+	    }
+
+	    nav:hover {
+	      font-weight : bold;
+	    }
+
+	  </style>
+
+
+
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="logo"><a href="/">ArtMuseum <span>  powered with GAN by TEAM.끝판왕</span></a></div>
+				<a href="#menu"><span>Menu</span></a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="/style">Style Transfer</a></li>
+					<li><a href="/faceswap">FaceSwap</a></li>
+					<li><a href="/firstodervideo">First Order Motion</a></li>
+					<li><a href="/about">About Us.</a></li>
+				</ul>
+			</nav>
+
+		<!-- Content -->
+		<!--
+			Note: To show a background image, set the "data-bg" attribute below
+			to the full filename of your image. This is used in each section to set
+			the background image.
+		-->
+		<section id="post" class="wrapper bg-img" data-bg="banner3.gif">
+			<div class="inner" style="width:1800px;">
+				<article class="box">
+					<header>
+						<h2>Face Swap</h2>
+
+					</header>
+					<div class="content">
+
+
+						<div id="style_container" class="container-fluid text-center bg-grey">
+							<div class="row text-center slideanim slide">
+								<div class="col-sm-4">
+									<div class="swap1">
+										<!-- <h3 style="color:rgb(180,180,180)">First,</h3>
+										<h4 style="color:rgb(180,180,180)">바꾸고 싶은 얼굴을 넣고</h4><br /> -->
+										<img src="static/img/source.png" alt="Source" width="380px" height=100%>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="swap1">
+										<!-- <h3 style="color:rgb(180,180,180)">Second,</h3>
+										<h4 style="color:rgb(180,180,180)">내 얼굴을 넣으면</h4><br /> -->
+										<img src="static/img/target.png" alt="Target" width="380px" height=100%>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="swap1">
+										<!-- <h3 style="color:rgb(180,180,180)">Third,</h3>
+										<h4 style="color:rgb(180,180,180)">얼굴을 바꿔드립니다!</h4><br /> -->
+										<img src="static/img/output.png" alt="Output" width="380px" height=100%>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+					<footer>
+						<ul class="actions">
+							<li><a href="#" class="button alt icon fa-chevron-left"><span class="label">Previous</span></a></li>
+							<li><a href="#" class="button alt icon fa-chevron-right"><span class="label">Next</span></a></li>
+						</ul>
+					</footer>
+				</article>
+			</div>
+		</section>
+
+
+		<section id="post" class="wrapper bg-img" data-bg="banner3.gif">
+			<div class="inner" style="width:1800px;">
+				<article class="box">
+					<header>
+						<h2>Face Swap</h2>
+
+					</header>
+					<div class="content">
+
+
+
+						<div id="style_container" class="container-fluid text-center bg-grey">
+
+
+						  <div class="col-sm-4">
+						    <div class=swap_video>
+						      <h2 style="color:rgb(180,180,180)">Source Video / Image</h2>
+						      <video src="static/video/source.mp4" controls width="490px" height="290px" autoplay="autoplay" muted="muted" loop="loop" preload="metadata" contorls="false"></video>
+						      <br /><br />
+						      <h4 style="color:rgb(180,180,180)">바꾸고싶은 얼굴의 비디오 또는 사진을 넣어주세요.</h4>
+						      <div class="filebox">
+						        <label for="ex_file">찾아보기</label>
+						        <input type="file" id="ex_file" />
+						      </div>
+						    </div>
+						  </div>
+						  <div class="col-sm-4">
+						    <div class=swap_video>
+						      <h2 style="color:rgb(180,180,180)">Target Video</h2>
+						      <video src="static/video/target.mp4" controls width="490px" height="290px" autoplay="autoplay" muted="muted" loop="loop" preload="metadata" contorls="false"></video>
+						      <br /><br />
+						      <h4 style="color:rgb(180,180,180)">바꿀 얼굴이 있는 비디오를 넣어주세요.</h4>
+						      <div class="filebox">
+						        <label for="ex_file">찾아보기</label>
+						        <input type="file" id="ex_file" />
+						      </div>
+						    </div>
+						  </div>
+						  <div class="col-sm-4">
+						    <div class=swap_video>
+						      <h2 style="color:rgb(180,180,180)">Output Video</h2>
+						      <video src="static/video/output.mp4" controls width="490px" height="290px" autoplay="autoplay" muted="muted" loop="loop" preload="metadata" contorls="false"></video>
+						        <br /><br />
+						        <h4 style="color:rgb(180,180,180)">바뀐 얼굴을 확인하세요.</h4>
+						        <div class="filebox">
+						          <label for="ex_file">변환하기</label>
+						        </div>
+
+						    </div>
+						  </div>
+						</div>
+s
+
+
+					</div>
+					<footer>
+						<ul class="actions">
+							<li><a href="#" class="button alt icon fa-chevron-left"><span class="label">Previous</span></a></li>
+							<li><a href="#" class="button alt icon fa-chevron-right"><span class="label">Next</span></a></li>
+						</ul>
+					</footer>
+				</article>
+			</div>
+		</section>
+
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+
+					<h2>Contact Me</h2>
+
+					<form action="#" method="post">
+
+						<div class="field half first">
+							<label for="name">Name</label>
+							<input name="name" id="name" type="text" placeholder="Name">
+						</div>
+						<div class="field half">
+							<label for="email">Email</label>
+							<input name="email" id="email" type="email" placeholder="Email">
+						</div>
+						<div class="field">
+							<label for="message">Message</label>
+							<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+						</div>
+						<ul class="actions">
+							<li><input value="Send Message" class="button alt" type="submit"></li>
+						</ul>
+					</form>
+
+					<ul class="icons">
+						<li><a href="#" class="icon round fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon round fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon round fa-instagram"><span class="label">Instagram</span></a></li>
+					</ul>
+
+					<div class="copyright">
+						&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+					</div>
+
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="../static/js/jquery.min.js"></script>
+			<script src="../static/js/jquery.scrolly.min.js"></script>
+			<script src="../static/js/jquery.scrollex.min.js"></script>
+			<script src="../static/js/skel.min.js"></script>
+			<script src="../static/js/util.js"></script>
+			<script src="../static/js/main.js"></script>
+
+	</body>
+</html>

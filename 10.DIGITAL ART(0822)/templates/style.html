@@ -74,10 +74,9 @@
           <input type="file" name="file" id="filechooser">
             <input type="button" id="btnSubmit" value="업로드">
           <script>
-              var uploadFiles = [];
+          var uploadFiles = [];
               var $drop = $("#drop");
-              var upload_name;
-              
+        
               // 이미지를 드래그 하기
               $drop.on("dragenter", function(e) {
                 $(this).addClass('drag-over');
@@ -119,7 +118,6 @@
         
               $("#btnSubmit").on("click", function() {
                 var formData = new FormData();
-                
                 $.each(uploadFiles, function(i, file) {
                     if(file.upload != 'disable') //삭제하지 않은 이미지만 업로드 항목으로 추가
                     formData.append('upload-file', file, file.name);
@@ -131,8 +129,7 @@
                   contentType : false,
                   processData: false,
                   success : function(ret) {
-                    alert("완료:" + ret.filename);
-                    upload_name = ret.filename;
+                    alert("완료");
                   }
                 });
               });
@@ -151,22 +148,20 @@
               if (this.readyState == 4 && this.status == 200) {
                //document.getElementById("demo").innerHTML = this.responseText;
                alert(data.responseText);
+              }
             };
-          }
-              xhttp.open("GET", "style2/" + param, true);
-              xhttp.send();
-            
+            xhttp.open("GET", "style2/" + param, true);
+            xhttp.send();
             };
             
             function changeIMG() {  
               $.ajax({
-                url: '/file/'+upload_name,
+                url: '/file/1_stylized.jpg',
                 type: 'GET',
                 dataType: 'script',
-                success : function(ret){
+                success : function(){
                   var image = document.getElementById("OutputImg");
-                  image.src = '/file/'+upload_name;
-                  alert(upload_name);
+                  image.src = "/file/1_stylized.jpg"
                 }
               });
             };
