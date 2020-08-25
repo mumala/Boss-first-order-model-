@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<!--
+	Road Trip by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Style Transfer</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../static/css/main.css" />
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+		<style>
+		td{
+
+			padding: 0px !important ;
+		}
+
+	    body {
+	      font-family: 'NanumGothic';
+	      background-color: #292929;
+	    }
+
+	    .drag-over { background-color: #ff0; }
+	    .thumb { width:200px; padding:5px; float:left; }
+	    .thumb > img { width:100%; }
+	    .thumb > .close { position:absolute; background-color:red; cursor:pointer; }
+	    .jumbotron {
+	      background-image :url("static/img/Header5.png");
+	      background-size : cover;
+	    }
+
+	    nav {
+	      font-size : 15px;
+	    }
+
+	    nav:hover {
+	      font-weight : bold;
+	    }
+			table{
+				height: 150px;
+				width: 150px;
+				margin: auto;
+				/* float:left; */
+	      border-radius: 20%;
+	      margin-top: 0px;
+	      /* margin-left: 500px; */
+	    }
+
+	    .video_art{
+	      background-color: white;
+	      border:outset;
+	      margin: auto;
+	      height: 150px;
+	      width: 150px;
+	      /* transform: perspective(50px) ; */
+	      border-radius: 30px;
+	      overflow: hidden;
+	    }
+
+	    img {
+	      max-width:100%;
+	      max-height:100%;
+	    }
+	    body {
+	        font-family: 'NanumGothic';
+	    }
+
+	    nav {
+	      font-size : 15px;
+	    }
+
+	    nav:hover {
+	      font-weight : bold;
+	    }
+
+	      .drag-over { background-color: #ff0; }
+	      .thumb { width:200px; padding:5px; float:left; }
+	      .thumb > img { width:100%; }
+	      .thumb > .close { position:absolute; background-color:red; cursor:pointer; }
+
+	  </style>
+
+
+
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="logo"><a href="/">ArtMuseum <span>  powered with GAN by TEAM.끝판왕</span></a></div>
+				<a href="#menu"><span>Menu</span></a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="/style">Style Transfer</a></li>
+					<li><a href="/faceswap">FaceSwap</a></li>
+					<li><a href="/firstodervideo">First Order Motion</a></li>
+					<li><a href="/about">About Us.</a></li>
+				</ul>
+			</nav>
+
+		<!-- Content -->
+		<!--
+			Note: To show a background image, set the "data-bg" attribute below
+			to the full filename of your image. This is used in each section to set
+			the background image.
+		-->
+			<section id="post" class="wrapper bg-img" data-bg="banner4.jpg">
+				<div class="inner" style="width:1600px;">
+					<article class="box">
+						<header>
+							<h2>Driving Video</h2>
+						</header>
+						<div class="content">
+						<video class='video_art' src='../static/img/d_trump_vox/trump.mp4' muted='muted'  autoplay='autoplay' loop='loop' preload='auto' contorls='false'
+						style=" width:400px ! important;
+							height:100%;
+							margin-left: 500px;
+							background-color: white;
+							border:outset;
+							/* transform: perspective(50px) ; */
+							border-radius: 30px;
+							overflow: hidden;
+							" >
+						</div>
+					</article>
+				</div>
+
+			</section>
+
+						<section id="post" class="wrapper bg-img" data-bg="banner4.jpg">
+
+						<div class="inner" style="width:1600px;">
+							<article class="box">
+								<header>
+									<h2>Source</h2>
+								</header>
+								<div class="content">
+									<table style="border=1px  solid #444444;
+									">
+										<script>
+											for(a = 1; a< 29; a++){
+												if(a==1){}
+												else{if(a%7==1){ document.write(" <tr>") }}
+													 document.write("<td><div class='video_div'><video class='video_art' src='../static/img/d_trump_vox/src ("+a+ ").mp4' muted='muted'  autoplay='autoplay' loop='loop' preload='auto' contorls='false' width=200px height=100% ></div></td>");
+
+											}
+										</script>
+								</table>
+								</div>
+
+
+
+						<footer>
+							<ul class="actions">
+								<li><a href="#" class="button alt icon fa-chevron-left"><span class="label">Previous</span></a></li>
+								<li><a href="#" class="button alt icon fa-chevron-right"><span class="label">Next</span></a></li>
+							</ul>
+						</footer>
+					</article>
+				</div>
+
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+
+					<h2>Contact Me</h2>
+
+					<form action="#" method="post">
+
+						<div class="field half first">
+							<label for="name">Name</label>
+							<input name="name" id="name" type="text" placeholder="Name">
+						</div>
+						<div class="field half">
+							<label for="email">Email</label>
+							<input name="email" id="email" type="email" placeholder="Email">
+						</div>
+						<div class="field">
+							<label for="message">Message</label>
+							<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+						</div>
+						<ul class="actions">
+							<li><input value="Send Message" class="button alt" type="submit"></li>
+						</ul>
+					</form>
+
+					<ul class="icons">
+						<li><a href="#" class="icon round fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon round fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon round fa-instagram"><span class="label">Instagram</span></a></li>
+					</ul>
+
+					<div class="copyright">
+						&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+					</div>
+
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="../static/js/jquery.min.js"></script>
+			<script src="../static/js/jquery.scrolly.min.js"></script>
+			<script src="../static/js/jquery.scrollex.min.js"></script>
+			<script src="../static/js/skel.min.js"></script>
+			<script src="../static/js/util.js"></script>
+			<script src="../static/js/main.js"></script>
+
+	</body>
+</html>
