@@ -65,12 +65,12 @@ def style_video_feed():
 
 @app.route('/firstordervideo')
 def first():
-    return render_template("/generic0.html")
+    return render_template("/generic1.html")
 
 ####################################################################################
 @app.route('/faceswap')
 def faceswap():
-    return render_template("/generic1.html")
+    return render_template("/generic0.html")
 ####################################################################################
 
 @app.route('/faceswap_video')
